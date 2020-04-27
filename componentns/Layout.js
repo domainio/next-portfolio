@@ -21,13 +21,6 @@ Router.onROuteChangeError = (url) => {
 
 const Layout = ({ children, title }) => (
   <div className="root">
-    <Head>
-      <title>Next Portfolie</title>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
-      />
-    </Head>
     <header>
       <Link href="/">Home</Link>
       <Link href="/about">About</Link>
