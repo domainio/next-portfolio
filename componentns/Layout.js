@@ -1,7 +1,33 @@
 import Link from 'next/link';
+import Head from 'next/head';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+
+Router.onRouteChangeStart = (url) => {
+  console.log('onROuteChangeStart ', url);
+  NProgress.start();
+}
+
+
+Router.onRouteChangeComplete = (url) => {
+  console.log('onRouteChangeComplete ', url);
+  NProgress.done();
+}
+
+Router.onROuteChangeError = (url) => {
+  console.log('onROuteChangeError ', url);
+  NProgress.remove();
+}
 
 const Layout = ({ children, title }) => (
   <div className="root">
+    <Head>
+      <title>Next Portfolie</title>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
+      />
+    </Head>
     <header>
       <Link href="/">Home</Link>
       <Link href="/about">About</Link>
