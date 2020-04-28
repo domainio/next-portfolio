@@ -22,9 +22,10 @@ Router.onROuteChangeError = (url) => {
 const Layout = ({ children, title }) => (
   <div className="root">
     <header>
-      <Link href="/">Home</Link>
-      <Link href="/about">About</Link>
-      <Link href="/hireme">Hire Me</Link>
+      <Link href="/"><a>Home</a></Link>
+      <Link href="/about"><a>About</a></Link>
+      <Link href="/hireme"><a>Hire Me</a></Link>
+      <Link href="/blog"><a>Blog</a></Link>
     </header>
     <h1>{title}</h1>
     <div>{children}</div>
