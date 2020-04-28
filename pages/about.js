@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import Layout from '../componentns/Layout';
 import fetch from 'isomorphic-unfetch';
+import ErrorPage from './_error';
 
-const About = ({ user }) => {
+const About = ({ user, statusCode }) => {
+  if (statusCode) {
+    return <ErrorPage statusCode={statusCode} />
+  }
   console.log(user);
   return (
     <Layout title="About">
@@ -13,10 +17,11 @@ const About = ({ user }) => {
 }
 
 About.getInitialProps = async () => {
-  const res = await fetch('https://api.github.com/users/domainio');
+  const res = await fetch('https://api.github.com/users/domainio2xx');
+  const statusCode = res.status > 200 ? res.status : false;
   const user = await res.json();
   return {
-    user
+    user, statusCode
   }
 }
 
