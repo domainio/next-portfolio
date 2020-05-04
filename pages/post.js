@@ -1,8 +1,9 @@
 import Layout from '../componentns/Layout';
+import { withRouter } from 'next/router';
 
-const PostPage = ({ url }) => {
+const PostPage = ({ router }) => {
   return (
-    <Layout title={url.query.title}>
+    <Layout title={router.query.title}>
       <p>
         post 1
       </p>
@@ -10,4 +11,4 @@ const PostPage = ({ url }) => {
   )
 };
 
-export default PostPage;
+export default withRouter(PostPage);
