@@ -4,11 +4,16 @@
   "main": "index.js",
   "license": "yes",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "next build",
+    "export": "next export",
+    "deploy": "cd out && now --public",
+    "now-build": "next build && next export -o dist"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.3.5",
+    "now": "^18.0.0",
     "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
